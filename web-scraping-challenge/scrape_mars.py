@@ -1,13 +1,9 @@
 #Dependencies
-import os
-import requests
-import pymongo
-from splinter import Browser
-from bs4 import BeautifulSoup
-import pandas as pd
-from flask import Flask, render_template, redirect
-from flask_pymongo import PyMongo
 import time
+import pandas as pd
+import requests as req
+from bs4 import BeautifulSoup as bs
+from splinter import Browser
 
 def init_browser():
     executable_path = {'executable_path': driverPath[0]}
@@ -15,7 +11,8 @@ def init_browser():
     time.sleep(4)
 
 def scrape():
-    browser = init_browser
+    browser = init_browser()
+
 
 #Visit the URL
 Nasa_news_url = 'https://mars.nasa.gov/news/'
@@ -85,3 +82,5 @@ for i in range(len(web_links)):
     web_list
 
 browser.quit
+
+scrape()
