@@ -1,5 +1,5 @@
 from flask import Flask, render_template,redirect, request, jsonify
-from flask_pymong import PyMongo
+from flask_pymongo import PyMongo
 #From the separate python file in this directory, we'll import the code that is used to scrape mars
 import scrape_mars
 
@@ -28,13 +28,13 @@ def scraper():
 
         # perform the scrape using our search term 
         # scrape_mars.scrape() is a custom function that we've defined in the scrape_mars.py file within this directory
-         mars_data = scrape_mars.scrape()
+    mars_data = scrape_mars.scrape()
 
         # Insert the results that we receive from the web scrape
-        mars_info.insert_many(mars_data)
+    mars_info.insert_many(mars_data)
 
     # Use Flask's redirect function to send us to a different route once this task has completed.
-    return 'Finished!'
+    return redirect('/')
 
 
 if __name__ == "__main__":
